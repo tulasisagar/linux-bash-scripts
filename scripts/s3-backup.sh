@@ -31,8 +31,8 @@ fi
 mkdir -p "$BACKUP_DIR"
 
 echo "creating backup archive....."
-tar -czf "$BACKUP_DIR/$BACKUP_FILE" "$BACKUP_FOLDER"
 
+tar -czf "$BACKUP_DIR/$BACKUP_FILE" "$BACKUP_FOLDER"
 if [ $? -ne 0 ]
 then
    echo "ERROE: backup creation failed"
@@ -57,6 +57,7 @@ else
 fi
 
 find "$BACKUP_DIR" -name "*.tar.gz" -mtime +7 -delete
+find "$BACKUP_DIR" -name "*.log" -mtime +30 -delete
 
 echo " "
 echo "Old backups cleaned"
