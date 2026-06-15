@@ -1,0 +1,8 @@
+# System health check - every day at 6AM
+0 6 * * * /home/tulasi-sagar/linux-bash-scripts/scripts/system-health.sh >> /home/tulasi-sagar/linux-bash-scripts/logs/health.log 2>&1
+
+# S3 Backup - every Sunday at 9AM
+0 9 * * 0 /home/tulasi-sagar/linux-bash-scripts/scripts/s3-backup.sh >> /home/tulasi-sagar/linux-bash-scripts/logs/backup.log 2>&1
+
+# Monthly user-management audit entry
+0 0 1 * * echo "Monthly check $(date)" >> /home/tulasi-sagar/linux-bash-scripts/logs/user-mgmt.log 2>&1
